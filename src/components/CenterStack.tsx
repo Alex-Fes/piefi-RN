@@ -1,15 +1,12 @@
-import React from 'react';
-import {View} from "react-native";
-import {center} from "../styles/globalStyles";
+import React from 'react'
 
+import { View } from 'react-native'
+
+import { center } from '../styles/globalStyles'
 
 type CenterStackPropsType = {
-    children: React.ReactNode
+  children: React.ReactNode
 }
-export const CenterStack = ({children}: CenterStackPropsType) => {
-    return (
-        <View style={center.center}>
-            {children}
-        </View>
-    );
-};
+export const CenterStack = ({ children }: CenterStackPropsType) => {
+  return <View style={center.center}>{children}</View>
+}
