@@ -1,16 +1,16 @@
-import {NavigationProp, useNavigation} from "@react-navigation/native";
+import { NavigationProp, useNavigation } from '@react-navigation/native'
 
 export type RootStackParamList = {
-    // Home: NavigatorScreenParams<NestedStackType>
-    Splash: undefined
-    //Details: undefined
-    // Details: {
-    //     id: number
-    //     name: string
-    // } | undefined
-    Onboard: undefined
-    Settings: undefined
-};
+  // Home: NavigatorScreenParams<NestedStackType>
+  Splash: undefined
+  //Details: undefined
+  // Details: {
+  //     id: number
+  //     name: string
+  // } | undefined
+  Onboard: undefined
+  Settings: undefined
+}
 
 // export type NestedStackType = {
 //     Profile: undefined
