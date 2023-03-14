@@ -4,7 +4,7 @@ import {TouchableOpacity, Text, StyleSheet, TouchableOpacityProps} from "react-n
 type Props = {
     title: string
     fontSize: number
-    fontWeight:  "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined
+    fontWeight: "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined
     color: string
     children?: React.ReactNode
 } & TouchableOpacityProps
@@ -23,6 +23,12 @@ export const Button = ({title, color, fontSize, fontWeight, children, ...restPro
 
 const styles = StyleSheet.create({
     button: {},
-    title: {},
+    title: {
+        textAlign: 'center',
+
+        // justifyContent: "center",
+        // alignItems: "center",
+        // flexDirection: "row",
+    },
 });
 
