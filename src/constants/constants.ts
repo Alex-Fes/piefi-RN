@@ -1,9 +1,9 @@
-import {Dimensions} from "react-native";
+import { Dimensions } from 'react-native'
 
-const {width, height} = Dimensions.get('screen')
+const { width, height } = Dimensions.get('screen')
 
-const WIDTH = width
+export const WIDTH = width
 
-const HEIGHT = height
+export const HEIGHT = height
 export const PADDING = 15
 export const NUM_COLUMN = 2
