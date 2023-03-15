@@ -1,24 +1,20 @@
-import { NavigationProp, useNavigation } from '@react-navigation/native'
+import { NavigationProp, NavigatorScreenParams, useNavigation } from '@react-navigation/native'
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 export type RootStackParamList = {
-  // Home: NavigatorScreenParams<NestedStackType>
-  Splash: undefined
-  //Details: undefined
-  // Details: {
-  //     id: number
-  //     name: string
-  // } | undefined
   Onboard: undefined
-  Settings: undefined
+  Home: NavigatorScreenParams<NestedStackType>
 }
 
-// export type NestedStackType = {
-//     Profile: undefined
-//     Login: undefined
-//     Registration: undefined
-// }
+export type NestedStackType = {
+  FirstScreen: undefined
+  History: undefined
+  Payment: undefined
+  Services: undefined
+  Chat: undefined
+}
 
-// export type DetailsProps = NativeStackScreenProps<RootStackParamList, 'Details'>;
+export type FirstScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>
 
 type UseNavigationType = NavigationProp<RootStackParamList>
 
