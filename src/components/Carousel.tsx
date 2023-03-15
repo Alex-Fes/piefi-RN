@@ -12,7 +12,6 @@ import {
 
 import { PADDING, WIDTH } from '../constants/constants'
 
-//const carouselItem = require('../carouselData/onboardData.json')
 const carouselItem = [
   {
     title: 'Приветствуем в Piefi!',
@@ -27,22 +26,24 @@ const carouselItem = [
     url: require('../../assets/onboardSecondImg.png'),
   },
 ]
+const viewConfigRef = { viewAreaCoveragePercentThreshold: 95 }
 
-export const Carousel = () => {
-  const viewConfigRef = { viewAreaCoveragePercentThreshold: 95 }
+export const Carousel = (props: CarouselPropsType) => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  let flatListRef = useRef<FlatList<onboardDataType> | null>()
+  let flatListRef = useRef<FlatList<OnboardDataType> | null>()
 
   const onViewRef = useRef(({ changed }: { changed: any }) => {
-    if (changed[0].isVisible) {
+    props.setView(changed[0].index)
+    if (changed[0].isViewable) {
       setCurrentIndex(changed[0].index)
     }
   })
   const scrollToIndex = (index: number) => {
     flatListRef.current?.scrollToIndex({ animated: true, index: index })
+    props.setView(index)
   }
 
-  const renderItems: React.FC<{ item: onboardDataType }> = ({ item }) => {
+  const renderItems: React.FC<{ item: OnboardDataType }> = ({ item }) => {
     return (
       <TouchableOpacity activeOpacity={1}>
         <Image source={item.url} style={styles.image} />
@@ -81,7 +82,9 @@ export const Carousel = () => {
                 backgroundColor: index === currentIndex ? '#FFF' : 'rgba(255, 255, 255, 0.1)',
               },
             ]}
-            onPress={() => scrollToIndex(index)}
+            onPress={() => {
+              scrollToIndex(index)
+            }}
           />
         ))}
       </View>
@@ -89,7 +92,11 @@ export const Carousel = () => {
   )
 }
 
-type onboardDataType = {
+type CarouselPropsType = {
+  setView: (index: number) => void
+}
+
+type OnboardDataType = {
   title: string
   description: string
   url: ImageSourcePropType

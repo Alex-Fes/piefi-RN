@@ -6,14 +6,12 @@ import { Button } from '../../components/Button'
 import { Carousel } from '../../components/Carousel'
 import { PADDING, WIDTH } from '../../constants/constants'
 
-type ViewType = 'first' | 'second'
-
 export const Onboard = () => {
-  const [view, setView] = useState<ViewType>('first')
+  const [view, setView] = useState(0)
   const [language, setLanguage] = useState(true)
 
   const backgroundImage =
-    view === 'first'
+    view === 0
       ? require('../../../assets/Mesh-gradient.png')
       : require('../../../assets/Mesh-gradient1.png')
 
@@ -34,7 +32,7 @@ export const Onboard = () => {
           />
         </View>
         <View style={styles.carousel}>
-          <Carousel />
+          <Carousel setView={setView} />
         </View>
         <View style={styles.loginBox}>
           <Button
@@ -68,7 +66,7 @@ const styles = StyleSheet.create({
   },
   head: {
     width: WIDTH - PADDING * 2,
-    paddingTop: 70,
+    paddingTop: 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -84,12 +82,13 @@ const styles = StyleSheet.create({
   carousel: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 20,
+    paddingTop: 10,
   },
   loginBox: {
     width: WIDTH - PADDING * 2,
     height: 108,
     justifyContent: 'space-between',
+    marginTop: 15,
   },
   loginBtn: {
     backgroundColor: '#FFF',
