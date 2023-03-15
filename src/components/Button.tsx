@@ -46,5 +46,6 @@ const styles = StyleSheet.create({
   button: {},
   title: {
     textAlign: 'center',
+    paddingVertical: 5,
   },
 })

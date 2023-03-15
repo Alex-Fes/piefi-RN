@@ -5,17 +5,19 @@ import { Image, ImageBackground, StyleSheet, View } from 'react-native'
 import { Button } from '../../components/Button'
 import { Carousel } from '../../components/Carousel'
 import { PADDING, WIDTH } from '../../constants/constants'
+import { LoginModal } from '../../modals/LoginModal'
+import { RegistrationModal } from '../../modals/RegisrtationModal'
 
 export const Onboard = () => {
   const [view, setView] = useState(0)
   const [language, setLanguage] = useState(true)
+  const [loginModalVisible, setLoginModalVisible] = useState(false)
+  const [RegisterModalVisible, setRegisterModalVisible] = useState(false)
 
   const backgroundImage =
     view === 0
       ? require('../../../assets/Mesh-gradient.png')
       : require('../../../assets/Mesh-gradient1.png')
-
-  // const logoWhiteback = require('../../../assets/piefi-logo–withback.png')
 
   return (
     <View style={styles.container}>
@@ -41,14 +43,26 @@ export const Onboard = () => {
             fontSize={16}
             fontWeight={'600'}
             color={'#1F1D28'}
-          />
+            onPress={() => setLoginModalVisible(!loginModalVisible)}
+          >
+            <LoginModal
+              loginModalVisible={loginModalVisible}
+              setLoginModalVisible={setLoginModalVisible}
+            />
+          </Button>
           <Button
             style={styles.signInBtn}
             title={'Создать аккаунт'}
             fontSize={16}
             fontWeight={'600'}
             color={'#FFF'}
-          />
+            onPress={() => setRegisterModalVisible(!RegisterModalVisible)}
+          >
+            <RegistrationModal
+              RegisterModalVisible={RegisterModalVisible}
+              setRegisterModalVisible={setRegisterModalVisible}
+            />
+          </Button>
         </View>
       </ImageBackground>
     </View>
@@ -96,6 +110,7 @@ const styles = StyleSheet.create({
     height: 48,
     borderRadius: 16,
     justifyContent: 'center',
+    paddingBottom: 15,
   },
   signInBtn: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -103,5 +118,6 @@ const styles = StyleSheet.create({
     height: 48,
     borderRadius: 16,
     justifyContent: 'center',
+    paddingBottom: 15,
   },
 })
