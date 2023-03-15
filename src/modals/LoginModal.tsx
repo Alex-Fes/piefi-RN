@@ -1,10 +1,14 @@
 import React from 'react'
 
-import { KeyboardAvoidingView, Modal, Pressable, Text, TextInput, View } from 'react-native'
+import { Modal, Pressable, Text, TextInput, View } from 'react-native'
+
+import { useAppNavigation } from '../types/navigationsTypes'
 
 import { styles } from './modalStyles'
 
 export const LoginModal = (props: LoginModalPropsType) => {
+  const { navigate } = useAppNavigation()
+
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -36,7 +40,10 @@ export const LoginModal = (props: LoginModalPropsType) => {
 
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={() => props.setLoginModalVisible(!props.loginModalVisible)}
+              onPress={() => {
+                props.setLoginModalVisible(!props.loginModalVisible)
+                navigate('Home', { screen: 'FirstScreen' })
+              }}
             >
               <Text style={styles.textStyle}>Login</Text>
             </Pressable>
@@ -50,4 +57,5 @@ export const LoginModal = (props: LoginModalPropsType) => {
 type LoginModalPropsType = {
   loginModalVisible: boolean
   setLoginModalVisible: (data: boolean) => void
+  url?: string
 }
