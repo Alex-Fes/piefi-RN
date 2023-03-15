@@ -2,9 +2,13 @@ import React from 'react'
 
 import { Modal, Pressable, Text, TextInput, View } from 'react-native'
 
+import { useAppNavigation } from '../types/navigationsTypes'
+
 import { styles } from './modalStyles'
 
 export const RegistrationModal = (props: RegistrationModalPropsType) => {
+  const { navigate } = useAppNavigation()
+
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -44,7 +48,10 @@ export const RegistrationModal = (props: RegistrationModalPropsType) => {
 
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={() => props.setRegisterModalVisible(!props.RegisterModalVisible)}
+              onPress={() => {
+                props.setRegisterModalVisible(!props.RegisterModalVisible)
+                navigate('Home', { screen: 'FirstScreen' })
+              }}
             >
               <Text style={styles.textStyle}>Register</Text>
             </Pressable>
