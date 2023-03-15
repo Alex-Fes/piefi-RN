@@ -10,22 +10,9 @@ import {
   View,
 } from 'react-native'
 
+import { carouselItem } from '../carouselData/onboardData'
 import { PADDING, WIDTH } from '../constants/constants'
 
-const carouselItem = [
-  {
-    title: 'Приветствуем в Piefi!',
-    description:
-      'Оплачивайте покупки по всему миру с помощью виртуального счета, криптовалюты или карты.',
-    url: require('../../assets/onboardFirstImg.png'),
-  },
-  {
-    title: 'Инвестиции',
-    description:
-      'Инвестируйте в привычные финансовые инструменты или в криптовалюту с повышенной процентной ставкой.',
-    url: require('../../assets/onboardSecondImg.png'),
-  },
-]
 const viewConfigRef = { viewAreaCoveragePercentThreshold: 95 }
 
 export const Carousel = (props: CarouselPropsType) => {
@@ -38,10 +25,6 @@ export const Carousel = (props: CarouselPropsType) => {
       setCurrentIndex(changed[0].index)
     }
   })
-  const scrollToIndex = (index: number) => {
-    flatListRef.current?.scrollToIndex({ animated: true, index: index })
-    props.setView(index)
-  }
 
   const renderItems: React.FC<{ item: OnboardDataType }> = ({ item }) => {
     return (
@@ -82,9 +65,6 @@ export const Carousel = (props: CarouselPropsType) => {
                 backgroundColor: index === currentIndex ? '#FFF' : 'rgba(255, 255, 255, 0.1)',
               },
             ]}
-            onPress={() => {
-              scrollToIndex(index)
-            }}
           />
         ))}
       </View>
