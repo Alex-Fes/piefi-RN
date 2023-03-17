@@ -23,7 +23,7 @@ export const Onboard = () => {
     <View style={styles.container}>
       <ImageBackground source={backgroundImage} resizeMode={'cover'} style={styles.backgroundImage}>
         <View style={styles.head}>
-          <Image source={require('../../../assets/piefi-logo–withback.png')} />
+          <Image style={styles.logo} source={require('../../../assets/icons/logoIconLight.png')} />
           <Button
             style={styles.changeLangBtn}
             title={language ? 'RU' : 'EN'}
@@ -84,6 +84,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  logo: {
+    tintColor: '#FFF',
+    width: 89,
+    height: 28,
   },
   changeLangBtn: {
     height: 40,
