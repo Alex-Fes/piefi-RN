@@ -3,18 +3,18 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 export type RootStackParamList = {
   Onboard: undefined
-  Home: NavigatorScreenParams<NestedStackType>
+  FirstScreen: NavigatorScreenParams<NestedTabType>
 }
 
-export type NestedStackType = {
-  FirstScreen: undefined
+export type NestedTabType = {
+  Home: undefined
   History: undefined
   Payment: undefined
   Services: undefined
   Chat: undefined
 }
 
-export type FirstScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>
+export type FirstScreenProps = NativeStackScreenProps<RootStackParamList, 'FirstScreen'>
 
 type UseNavigationType = NavigationProp<RootStackParamList>
 
