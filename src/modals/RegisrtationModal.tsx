@@ -50,7 +50,7 @@ export const RegistrationModal = (props: RegistrationModalPropsType) => {
               style={[styles.button, styles.buttonClose]}
               onPress={() => {
                 props.setRegisterModalVisible(!props.RegisterModalVisible)
-                navigate('Home', { screen: 'FirstScreen' })
+                navigate('FirstScreen', { screen: 'Home' })
               }}
             >
               <Text style={styles.textStyle}>Register</Text>
