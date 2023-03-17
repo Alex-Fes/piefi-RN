@@ -42,7 +42,7 @@ export const LoginModal = (props: LoginModalPropsType) => {
               style={[styles.button, styles.buttonClose]}
               onPress={() => {
                 props.setLoginModalVisible(!props.loginModalVisible)
-                navigate('Home', { screen: 'FirstScreen' })
+                navigate('FirstScreen', { screen: 'Home' })
               }}
             >
               <Text style={styles.textStyle}>Login</Text>
