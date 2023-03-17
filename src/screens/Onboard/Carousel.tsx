@@ -10,8 +10,8 @@ import {
   View,
 } from 'react-native'
 
-import { carouselItem } from '../carouselData/onboardData'
-import { PADDING, WIDTH } from '../constants/constants'
+import { carouselItem } from '../../carouselData/onboardData'
+import { PADDING, WIDTH } from '../../constants/constants'
 
 const viewConfigRef = { viewAreaCoveragePercentThreshold: 95 }
 

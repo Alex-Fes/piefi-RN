@@ -3,10 +3,11 @@ import React, { useState } from 'react'
 import { Image, ImageBackground, StyleSheet, View } from 'react-native'
 
 import { Button } from '../../components/Button'
-import { Carousel } from '../../components/Carousel'
 import { PADDING, WIDTH } from '../../constants/constants'
 import { LoginModal } from '../../modals/LoginModal'
 import { RegistrationModal } from '../../modals/RegisrtationModal'
+
+import { Carousel } from './Carousel'
 
 export const Onboard = () => {
   const [view, setView] = useState(0)
