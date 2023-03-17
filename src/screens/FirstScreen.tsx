@@ -8,8 +8,8 @@ import { PADDING, WIDTH } from '../constants/constants'
 import { NestedTabType } from '../types/navigationsTypes'
 
 import { Chat } from './Chat/Chat'
-import { Home } from './FirstScreen/Home'
 import { History } from './History/History'
+import { Home } from './Home/Home'
 import { Payment } from './Payment/Payment'
 import { Services } from './Services/Services'
 
