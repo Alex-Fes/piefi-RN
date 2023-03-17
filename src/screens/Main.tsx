@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native'
 
 import { RootStackParamList } from '../types/navigationsTypes'
 
-import { Home } from './Home'
+import { FirstScreen } from './FirstScreen'
 import { Onboard } from './Onboard/Onboard'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -15,7 +15,7 @@ export const Main = () => {
     <View style={styles.container}>
       <Stack.Navigator initialRouteName={'Onboard'} screenOptions={{ headerShown: false }}>
         <Stack.Screen name={'Onboard'} component={Onboard} />
-        <Stack.Screen name={'Home'} component={Home} />
+        <Stack.Screen name={'FirstScreen'} component={FirstScreen} />
       </Stack.Navigator>
     </View>
   )
