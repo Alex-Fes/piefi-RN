@@ -23,7 +23,7 @@ export const savingBalance: ProductPropsType = {
   currentCurrency: 'EUR',
 }
 export const investment: ProductPropsType = {
-  cardLogo: require('../../../../assets/icons/myProductsIcons/savingBalance.png'),
+  cardLogo: require('../../../../assets/icons/myProductsIcons/investmentsIcon.png'),
   bankSystemLogo: require('../../../../assets/icons/myProductsIcons/masterCardIcon.png'),
   arrow: require('../../../../assets/icons/myProductsIcons/arrowUpIcon.png'),
   littleLogo: require('../../../../assets/piefi-logo–withback.png'),
