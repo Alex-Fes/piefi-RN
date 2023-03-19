@@ -35,7 +35,7 @@ export const FirstScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
   },
   tabBarStyle: {
     position: 'absolute',
