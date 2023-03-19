@@ -73,6 +73,7 @@ export const Onboard = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // height: HEIGHT,
   },
   backgroundImage: {
     flex: 1,
