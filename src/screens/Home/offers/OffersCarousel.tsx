@@ -29,7 +29,7 @@ export const OffersCarousel = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 100,
+    // marginBottom: 100,
   },
   itemBox: {
     width: 244,
@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#FFF',
     paddingBottom: 20,
+    letterSpacing: 0.04,
   },
 })
 
