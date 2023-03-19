@@ -18,34 +18,38 @@ export const Product = (props: ProductPropsType) => {
         Alert.alert(props.navigate)
       }}
     >
-      {props.cardNumber ? (
-        <View style={[styles.iconBox, { backgroundColor: '#905EFF' }]}>
-          <Image source={props.cardLogo} style={styles.iconBoxLogo} />
-          <Image source={props.littleLogo} style={styles.iconBoxLittleLogo} />
-          <Image source={props.bankSystemLogo} style={styles.iconBoxBankSystemLogo} />
-          <Text style={styles.cardNumber}>•{props.cardNumber}</Text>
-        </View>
-      ) : (
-        <View
-          style={[
-            styles.iconBox,
-            { backgroundColor: '#1F1D28', justifyContent: 'center', alignItems: 'center' },
-          ]}
-        >
-          <Image source={props.cardLogo} style={styles.productLogo} />
-        </View>
-      )}
-      <View style={styles.infoBox}>
-        <Text style={styles.productTitle}>{props.productTitle}</Text>
-        <View style={styles.balanceBox}>
-          <Text style={styles.productBalance}>{props.productBalance}</Text>
-          <Text style={styles.currency}>{props.currentCurrency}</Text>
+      <View style={styles.leftBox}>
+        {props.cardNumber ? (
+          <View style={[styles.iconBox, { backgroundColor: '#905EFF' }]}>
+            <Image source={props.cardLogo} style={styles.iconBoxLogo} />
+            <Image source={props.littleLogo} style={styles.iconBoxLittleLogo} />
+            <Image source={props.bankSystemLogo} style={styles.iconBoxBankSystemLogo} />
+            <Text style={styles.cardNumber}>•{props.cardNumber}</Text>
+          </View>
+        ) : (
+          <View
+            style={[
+              styles.iconBox,
+              { backgroundColor: '#1F1D28', justifyContent: 'center', alignItems: 'center' },
+            ]}
+          >
+            <Image source={props.cardLogo} style={styles.productLogo} />
+          </View>
+        )}
+        <View style={styles.infoBox}>
+          <Text style={styles.productTitle}>{props.productTitle}</Text>
+          <View style={styles.balanceBox}>
+            <Text style={styles.productBalance}>{props.productBalance}</Text>
+            <Text style={styles.currency}>{props.currentCurrency}</Text>
+          </View>
         </View>
       </View>
       {props.investProfit && (
-        <View style={styles.profitBox}>
-          <Image style={styles.arrow} source={props.arrow} />
-          <Text style={styles.investValue}>{props.investProfit}%</Text>
+        <View style={styles.rightBox}>
+          <View style={styles.profitBox}>
+            <Image style={styles.arrow} source={props.arrow} />
+            <Text style={styles.investValue}>{props.investProfit}%</Text>
+          </View>
         </View>
       )}
     </TouchableOpacity>
@@ -69,13 +73,18 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#302A3B',
     flexDirection: 'row',
-    justifyContent: 'flex-start',
     alignItems: 'center',
+    justifyContent: 'space-between',
     width: '100%',
     height: 72,
     borderRadius: 20,
     position: 'relative',
     marginVertical: 4,
+  },
+  leftBox: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   iconBox: {
     width: 80,
@@ -141,17 +150,16 @@ const styles = StyleSheet.create({
     color: '#FFF',
     marginLeft: 6,
   },
+  rightBox: {},
   profitBox: {
     width: 44,
     height: 20,
-    position: 'absolute',
-    left: 292,
-    top: 26,
     backgroundColor: '#40AE5F',
     borderRadius: 20,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginRight: 20,
   },
   arrow: {
     width: 5,

@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingHorizontal: 8,
-    // backgroundColor: '#775a5a',
     bottom: 10,
     marginHorizontal: 5,
   },
