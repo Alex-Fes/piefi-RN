@@ -4,6 +4,7 @@ import { ScrollView, StyleSheet, View } from 'react-native'
 
 import { PADDING } from '../../constants/constants'
 
+import { ExchangeRate } from './exchangeRates/ExchangeRate'
 import { FirstFrame } from './firstFrame/FirstFrame'
 import { Offers } from './offers/Offers'
 import { Verification } from './verification/Verification'
@@ -19,6 +20,9 @@ export const Home = () => {
       </View>
       <View style={styles.contentBox}>
         <Offers />
+      </View>
+      <View style={styles.contentBox}>
+        <ExchangeRate />
       </View>
     </ScrollView>
   )
