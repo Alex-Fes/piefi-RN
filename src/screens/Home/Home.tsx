@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ScrollView, StyleSheet, View } from 'react-native'
+import { ScrollView, StyleSheet, useColorScheme, View } from 'react-native'
 
-import { PADDING } from '../../constants/constants'
+import { BG_COLOR_DARK, BG_COLOR_LIGHT, BG_COLOR_SECOND, PADDING } from '../../constants/constants'
 
 import { ExchangeRate } from './exchangeRates/ExchangeRate'
 import { FirstFrame } from './firstFrame/FirstFrame'
@@ -10,19 +10,29 @@ import { Offers } from './offers/Offers'
 import { Verification } from './verification/Verification'
 
 export const Home = () => {
+  const theme = useColorScheme()
+  const isDarkTheme = theme === 'dark'
+
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={[
+        styles.container,
+        isDarkTheme ? { backgroundColor: BG_COLOR_DARK } : { backgroundColor: BG_COLOR_LIGHT },
+      ]}
+      showsVerticalScrollIndicator={false}
+      bounces={false}
+    >
       <View style={styles.firstFrame}>
         <FirstFrame />
       </View>
       <View style={styles.contentBox}>
-        <Verification />
+        <Verification isDarkTheme={isDarkTheme} />
       </View>
       <View style={styles.contentBox}>
-        <Offers />
+        <Offers isDarkTheme={isDarkTheme} />
       </View>
       <View style={styles.contentBox}>
-        <ExchangeRate />
+        <ExchangeRate isDarkTheme={isDarkTheme} />
       </View>
     </ScrollView>
   )
@@ -30,11 +40,9 @@ export const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // marginBottom: 40,
-    // backgroundColor: '#dfe4f1',
   },
   firstFrame: {
-    backgroundColor: '#1F1D28',
+    backgroundColor: BG_COLOR_SECOND,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },

@@ -2,33 +2,55 @@ import React from 'react'
 
 import { View, Text, StyleSheet, Image } from 'react-native'
 
-import { PADDING, WIDTH } from '../../../constants/constants'
+import {
+  BG_COLOR_FOR_ITEM,
+  BG_COLOR_FOR_ITEM_DARK,
+  PADDING,
+  TEXT_COLOR,
+  TEXT_COLOR_SECOND,
+  TINTCOLOR,
+  WIDTH,
+} from '../../../constants/constants'
 
-export const Verification = () => {
+export const Verification = (props: VerificationPropsType) => {
+  const textColor = props.isDarkTheme ? { color: TEXT_COLOR } : { color: TEXT_COLOR_SECOND }
+  const backgroundColor = props.isDarkTheme
+    ? { backgroundColor: BG_COLOR_FOR_ITEM_DARK }
+    : { backgroundColor: BG_COLOR_FOR_ITEM }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Подтвердите аккаунт</Text>
+      <Text style={[styles.title, textColor]}>Подтвердите аккаунт</Text>
       <View style={styles.actionBox}>
-        <View style={[styles.verification, styles.contentBox]}>
+        <View style={[styles.verification, styles.contentBox, backgroundColor]}>
           <Image
             source={require('../../../../assets/icons/historyIcon.png')}
             style={styles.timeIcon}
           />
-          <Text style={styles.actionTitle}>Верификация личности</Text>
-          <View style={styles.statusBox}>
-            <Text style={styles.status}>На рассмотрении</Text>
+          <Text style={[styles.actionTitle, textColor]}>Верификация личности</Text>
+          <View
+            style={[
+              styles.statusBox,
+              props.isDarkTheme ? { backgroundColor: '#1F1D28' } : { backgroundColor: '#E6E5E7' },
+            ]}
+          >
+            <Text style={[styles.status, textColor]}>На рассмотрении</Text>
           </View>
         </View>
-        <View style={[styles.confirmEmail, styles.contentBox]}>
+        <View style={[styles.confirmEmail, styles.contentBox, backgroundColor]}>
           <Image
             source={require('../../../../assets/icons/verificationIcon/emailIcon.png')}
             style={styles.emailIcon}
           />
-          <Text style={[styles.actionTitle, { bottom: 16 }]}>Подтвердите почту</Text>
+          <Text style={[styles.actionTitle, { bottom: 16 }, textColor]}>Подтвердите почту</Text>
         </View>
       </View>
     </View>
   )
+}
+
+type VerificationPropsType = {
+  isDarkTheme: boolean
 }
 
 const styles = StyleSheet.create({
@@ -36,7 +58,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     fontWeight: '700',
-    color: '#221C35',
   },
   actionBox: {
     flexDirection: 'row',
@@ -48,16 +69,13 @@ const styles = StyleSheet.create({
     width: (WIDTH - PADDING * 2) / 2 - 5,
     height: 160,
     borderRadius: 20,
-    backgroundColor: 'rgba(227,232,236,0.73)',
     marginRight: 10,
   },
-  verification: {
-    // justifyContent: 'flex-end',
-  },
+  verification: {},
   timeIcon: {
     height: 30,
     width: 30,
-    tintColor: '#8854FA',
+    tintColor: TINTCOLOR,
     top: 10,
     left: 10,
   },
@@ -71,7 +89,6 @@ const styles = StyleSheet.create({
     height: 30,
     width: 121,
     borderRadius: 12,
-    backgroundColor: '#E6E5E7',
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 10,
@@ -80,7 +97,6 @@ const styles = StyleSheet.create({
   status: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#221C35',
   },
   confirmEmail: {
     position: 'relative',

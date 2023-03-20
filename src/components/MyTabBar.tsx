@@ -1,8 +1,14 @@
 import React from 'react'
 
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native'
 
-import { WIDTH } from '../constants/constants'
+import {
+  BG_COLOR_FOR_TAB_NAVIGATION,
+  BG_COLOR_FOR_TAB_NAVIGATION_DARK,
+  TINTCOLOR,
+  TINTCOLOR_SECOND,
+  WIDTH,
+} from '../constants/constants'
 
 const chatIcon = require('../../assets/icons/chatIcon.png')
 const historyIcon = require('../../assets/icons/historyIcon.png')
@@ -11,8 +17,15 @@ const servicesIcon = require('../../assets/icons/servicesIcon.png')
 const transferIcon = require('../../assets/icons/transferIcon.png')
 
 export const MyTabBar = ({ state, descriptors, navigation }: any) => {
+  const theme = useColorScheme()
+  const isDarkTheme = theme === 'dark'
+
+  const backgroundColor = isDarkTheme
+    ? { backgroundColor: BG_COLOR_FOR_TAB_NAVIGATION_DARK, borderWidth: 0 }
+    : { backgroundColor: BG_COLOR_FOR_TAB_NAVIGATION }
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, backgroundColor]}>
       {state.routes.map(
         (
           route: { key: string | number; name: any },
@@ -84,9 +97,13 @@ export const MyTabBar = ({ state, descriptors, navigation }: any) => {
               <Image
                 source={iconName}
                 resizeMode={'contain'}
-                style={{ width: 32, height: 32, tintColor: isFocused ? '#8854FA' : '#b8b6be' }}
+                style={{
+                  width: 32,
+                  height: 32,
+                  tintColor: isFocused ? TINTCOLOR : TINTCOLOR_SECOND,
+                }}
               />
-              <Text style={{ color: isFocused ? '#8854FA' : '#b8b6be' }}>{label}</Text>
+              <Text style={{ color: isFocused ? TINTCOLOR : TINTCOLOR_SECOND }}>{label}</Text>
             </TouchableOpacity>
           )
         }
@@ -94,21 +111,29 @@ export const MyTabBar = ({ state, descriptors, navigation }: any) => {
     </View>
   )
 }
+// type MyTabBarPropsType = {
+//   state: TabNavigationState<any>
+//   descriptors: BottomTabDescriptorMap
+//   navigation: NavigationHelpers<any, any>
+// }
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    opacity: 1,
     height: 86,
     width: WIDTH,
     position: 'absolute',
-    bottom: 0,
+    bottom: -2,
     left: 0,
-    borderRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     borderColor: '#E8E8E8',
     borderWidth: 1,
     borderStyle: 'solid',
+    shadowColor: 'rgba(0, 0, 0, 0.02)',
   },
   labelContainer: {
     flexDirection: 'column',
