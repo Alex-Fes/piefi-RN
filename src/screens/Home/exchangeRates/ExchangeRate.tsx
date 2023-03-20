@@ -12,24 +12,37 @@ import {
 } from 'react-native'
 
 import { currentCurrencyData } from '../../../carouselData/onboardData'
-import { NUM_COLUMN, PADDING, WIDTH } from '../../../constants/constants'
+import {
+  BG_COLOR_FOR_ITEM,
+  BG_COLOR_FOR_ITEM_DARK,
+  NUM_COLUMN,
+  PADDING,
+  TEXT_COLOR,
+  TEXT_COLOR_SECOND,
+  WIDTH,
+} from '../../../constants/constants'
 
-export const ExchangeRate = () => {
+export const ExchangeRate = (props: ExchangeRatePropsType) => {
+  const textColor = props.isDarkTheme ? { color: TEXT_COLOR } : { color: TEXT_COLOR_SECOND }
+  const tintColor = props.isDarkTheme ? { tintColor: TEXT_COLOR } : { tintColor: TEXT_COLOR_SECOND }
+  const backgroundColor = props.isDarkTheme
+    ? { backgroundColor: BG_COLOR_FOR_ITEM_DARK }
+    : { backgroundColor: BG_COLOR_FOR_ITEM }
   const renderItem: ListRenderItem<currentCurrencyDataType> = ({ item }) => {
     return (
       <TouchableOpacity
-        style={styles.currencyItem}
+        style={[styles.currencyItem, backgroundColor]}
         onPress={() => {
           Alert.alert(`Go to ${item.currencyName} page`)
         }}
       >
         <View style={styles.currency}>
-          <Text style={styles.currencyIndex}>{item.currencyIndex}</Text>
-          <Text style={styles.currencyName}>{item.currencyName}</Text>
+          <Text style={[styles.currencyIndex, textColor]}>{item.currencyIndex}</Text>
+          <Text style={[styles.currencyName, textColor]}>{item.currencyName}</Text>
         </View>
         <View style={styles.currencyValue}>
-          <Text style={styles.currencyValueStyle}>{item.exchangeValue}</Text>
-          <Text style={styles.currencyValueStyle}>{item.exchangeCurrency}</Text>
+          <Text style={[styles.currencyValueStyle, textColor]}>{item.exchangeValue}</Text>
+          <Text style={[styles.currencyValueStyle, textColor]}>{item.exchangeCurrency}</Text>
         </View>
       </TouchableOpacity>
     )
@@ -37,7 +50,7 @@ export const ExchangeRate = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Курсы валют</Text>
+      <Text style={[styles.title, textColor]}>Курсы валют</Text>
 
       <FlatList
         data={currentCurrencyData}
@@ -54,9 +67,9 @@ export const ExchangeRate = () => {
             Alert.alert(`Go to "All currency's" page`)
           }}
         >
-          <Text style={styles.allCurrencyTitle}>Все валюты</Text>
+          <Text style={[styles.allCurrencyTitle, textColor]}>Все валюты</Text>
           <Image
-            style={styles.allCurrencyIcon}
+            style={[styles.allCurrencyIcon, tintColor]}
             source={require('../../../../assets/icons/myProductsIcons/rightArrowIcon.png')}
           />
         </TouchableOpacity>
@@ -64,7 +77,9 @@ export const ExchangeRate = () => {
     </View>
   )
 }
-
+type ExchangeRatePropsType = {
+  isDarkTheme: boolean
+}
 const styles = StyleSheet.create({
   container: {
     marginBottom: 100,
@@ -72,13 +87,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     fontWeight: '700',
-    color: '#221C35',
     paddingVertical: 20,
   },
   currencyItem: {
     height: 112,
     width: (WIDTH - PADDING * 2) / NUM_COLUMN - 5,
-    backgroundColor: '#dfe4f1',
+
     borderRadius: 20,
     marginVertical: 5,
     justifyContent: 'space-between',
@@ -91,12 +105,11 @@ const styles = StyleSheet.create({
   currencyIndex: {
     fontWeight: '500',
     fontSize: 20,
-    color: '#221C35',
   },
   currencyName: {
     fontWeight: '400',
     fontSize: 14,
-    color: '#221C35',
+
     opacity: 0.56,
   },
   currencyValue: {
@@ -107,7 +120,6 @@ const styles = StyleSheet.create({
   currencyValueStyle: {
     fontWeight: '600',
     fontSize: 16,
-    color: '#221C35',
     paddingRight: 6,
   },
   allCurrencyBtn: {
@@ -122,12 +134,10 @@ const styles = StyleSheet.create({
   allCurrencyTitle: {
     fontWeight: '600',
     fontSize: 16,
-    color: '#221C35',
   },
   allCurrencyIcon: {
     width: 16,
     height: 16,
-    tintColor: '#221C35',
   },
 })
 
