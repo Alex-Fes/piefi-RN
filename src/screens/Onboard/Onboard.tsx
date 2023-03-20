@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Image, ImageBackground, StyleSheet, View } from 'react-native'
 
 import { Button } from '../../components/Button'
-import { PADDING, WIDTH } from '../../constants/constants'
+import { HEIGHT, PADDING, WIDTH } from '../../constants/constants'
 import { LoginModal } from '../../modals/LoginModal'
 import { RegistrationModal } from '../../modals/RegisrtationModal'
 
@@ -73,12 +73,12 @@ export const Onboard = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // height: HEIGHT,
   },
   backgroundImage: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
+    height: HEIGHT,
   },
   head: {
     width: WIDTH - PADDING * 2,
@@ -109,11 +109,13 @@ const styles = StyleSheet.create({
     width: WIDTH - PADDING * 2,
     height: 108,
     justifyContent: 'space-between',
+    alignItems: 'center',
     marginTop: 15,
   },
   loginBtn: {
     backgroundColor: '#FFF',
     width: WIDTH - PADDING * 2,
+    maxWidth: 360,
     height: 48,
     borderRadius: 16,
     justifyContent: 'center',
@@ -122,6 +124,7 @@ const styles = StyleSheet.create({
   signInBtn: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     width: WIDTH - PADDING * 2,
+    maxWidth: 360,
     height: 48,
     borderRadius: 16,
     justifyContent: 'center',

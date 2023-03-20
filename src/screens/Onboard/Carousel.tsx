@@ -85,10 +85,12 @@ type OnboardDataType = {
 const styles = StyleSheet.create({
   container: {
     width: WIDTH - PADDING * 2,
+    maxWidth: 360,
   },
   carousel: {},
   image: {
     width: WIDTH - PADDING * 2,
+    maxWidth: 360,
     height: 382,
     resizeMode: 'contain',
   },
@@ -100,6 +102,7 @@ const styles = StyleSheet.create({
     lineHeight: 40,
     color: '#fff',
     width: WIDTH - PADDING * 2,
+    maxWidth: 360,
     textAlign: 'center',
     paddingBottom: 15,
   },
@@ -109,6 +112,7 @@ const styles = StyleSheet.create({
     color: '#FFF',
     textAlign: 'center',
     width: WIDTH - PADDING * 2,
+    maxWidth: 360,
     flexWrap: 'wrap',
   },
   dotView: {
