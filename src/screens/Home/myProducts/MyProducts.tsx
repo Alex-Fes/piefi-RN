@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-import { PADDING, WIDTH } from '../../../constants/constants'
+import { PADDING, TEXT_COLOR, WIDTH } from '../../../constants/constants'
 
 import { Product } from './Product'
 import { investment, paymentData, savingBalance } from './productData'
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   text: {
-    color: '#FFF',
+    color: TEXT_COLOR,
     fontSize: 26,
     fontWeight: '700',
   },
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   secondTitle: {
     fontWeight: '600',
     fontSize: 16,
-    color: '#FFF',
+    color: TEXT_COLOR,
   },
   secondTitleIcon: {
     width: 16,
