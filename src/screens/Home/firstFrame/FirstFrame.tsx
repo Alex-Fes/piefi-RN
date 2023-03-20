@@ -18,7 +18,5 @@ export const FirstFrame = () => {
 const styles = StyleSheet.create({
   container: {
     width: WIDTH,
-    // backgroundColor: '#1F1D28',
-    // position: 'relative',
   },
 })
