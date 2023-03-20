@@ -3,6 +3,7 @@ import React from 'react'
 import { FlatList, Image, ImageSourcePropType, StyleSheet, Text, View } from 'react-native'
 
 import { offerDataCarousel } from '../../../carouselData/onboardData'
+import { TEXT_COLOR } from '../../../constants/constants'
 
 export const OffersCarousel = () => {
   const renderItem: React.FC<{ item: OffersCarouselDataType }> = ({ item }) => {
@@ -28,9 +29,7 @@ export const OffersCarousel = () => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    // marginBottom: 100,
-  },
+  container: {},
   itemBox: {
     width: 244,
     height: 320,
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
   description: {
     fontWeight: '600',
     fontSize: 18,
-    color: '#FFF',
+    color: TEXT_COLOR,
     paddingBottom: 20,
     letterSpacing: 0.04,
   },
