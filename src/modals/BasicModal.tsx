@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 22,
-    // width: WIDTH - PADDING * 2,
   },
 })
 
