@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { View, Text, TouchableOpacity, Image, StyleSheet, Alert } from 'react-native'
+import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-import { PADDING, WIDTH } from '../../../../constants/constants'
+import { PADDING, TEXT_COLOR } from '../../../../constants/constants'
 
 export const UserBar = () => {
   return (
@@ -57,18 +57,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // width: WIDTH,
     height: 48,
-    // backgroundColor: '#1F1D28',
-    // borderBottomLeftRadius: 20,
-    // borderBottomRightRadius: 20,
-    // position: 'absolute',
-    // top: 0,
-    // left: 0,
   },
-  userBox: {
-    // width: WIDTH - PADDING * 2,
-  },
+  userBox: {},
   nameBtn: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -90,7 +81,7 @@ const styles = StyleSheet.create({
     borderLeftColor: '#8854FA',
   },
   nameLetterStyle: {
-    color: '#FFF',
+    color: TEXT_COLOR,
     fontWeight: '700',
     fontSize: 18,
   },
@@ -98,7 +89,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 6,
     fontWeight: '600',
     fontSize: 14,
-    color: '#FFF',
+    color: TEXT_COLOR,
   },
   infoBox: {
     flexDirection: 'row',
