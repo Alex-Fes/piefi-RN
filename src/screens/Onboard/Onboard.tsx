@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-import { Image, ImageBackground, StyleSheet, View } from 'react-native'
+import { Image, ImageBackground, ScrollView, StyleSheet, View } from 'react-native'
 
 import { Button } from '../../components/Button'
-import { HEIGHT, PADDING, WIDTH } from '../../constants/constants'
+import { PADDING, WIDTH } from '../../constants/constants'
 import { LoginModal } from '../../modals/LoginModal'
 import { RegistrationModal } from '../../modals/RegisrtationModal'
 
@@ -21,8 +21,12 @@ export const Onboard = () => {
       : require('../../../assets/Mesh-gradient1.png')
 
   return (
-    <View style={styles.container}>
-      <ImageBackground source={backgroundImage} resizeMode={'cover'} style={styles.backgroundImage}>
+    <ImageBackground
+      source={backgroundImage}
+      // resizeMode={'cover'}
+      style={[styles.backgroundImage, StyleSheet.absoluteFillObject]}
+    >
+      <ScrollView style={styles.container} bounces={false} showsVerticalScrollIndicator={false}>
         <View style={styles.head}>
           <Image style={styles.logo} source={require('../../../assets/icons/logoIconLight.png')} />
           <Button
@@ -65,20 +69,16 @@ export const Onboard = () => {
             />
           </Button>
         </View>
-      </ImageBackground>
-    </View>
+      </ScrollView>
+    </ImageBackground>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  container: {},
   backgroundImage: {
-    flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    height: HEIGHT,
   },
   head: {
     width: WIDTH - PADDING * 2,
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 15,
+    marginBottom: 50,
   },
   loginBtn: {
     backgroundColor: '#FFF',
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
     height: 48,
     borderRadius: 16,
     justifyContent: 'center',
+    alignItems: 'center',
     paddingBottom: 15,
   },
   signInBtn: {
@@ -128,6 +130,8 @@ const styles = StyleSheet.create({
     height: 48,
     borderRadius: 16,
     justifyContent: 'center',
+    alignItems: 'center',
+    // textAlign: 'center',
     paddingBottom: 15,
   },
 })
