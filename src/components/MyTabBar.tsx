@@ -120,7 +120,7 @@ export const MyTabBar = ({ state, descriptors, navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     opacity: 1,
     height: 86,
